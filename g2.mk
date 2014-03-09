@@ -113,7 +113,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.dualmic.config=endfire \
 	af.resampler.quality=4 \
 	audio.offload.buffer.size.kb=32 \
-	audio.offload.gapless.enabled=false \
+	audio.offload.gapless.enabled=true \
 	av.offload.enable=true
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
@@ -211,6 +211,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+
+# Dexopt system to /cache
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.dexopt-data-only=0
+
 
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
